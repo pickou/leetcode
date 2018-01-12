@@ -27,3 +27,28 @@ public:
         return ans;
     }
 };
+
+/***********3Sum_closest****************/
+// 一个数组中三个数相加距离给定的数字更近，返回这三个数的和
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        int p,q;
+        int closest_sum=nums[0]+nums[1]+nums[nums.size()-1];
+        int sum=closest_sum;
+        int dis=abs(sum-target);
+        for(int i=0; i< nums.size()-1; i++) {
+            p = i+1;
+            q = nums.size()-1;
+            while(p<q){
+                sum = nums[i]+nums[p]+nums[q];
+                if(abs(sum-target)<dis) {dis=abs(sum-target); closest_sum=sum;}
+                if(sum<target) p++;
+                else if(sum>target) q--;
+                else return sum;
+            }
+        }
+        return closest_sum;
+    }
+};
