@@ -1,7 +1,7 @@
 /*************3Sum*******************/
 // 求解一个数组中的三个数,使得a+b+c=0,返回值是vector<vecor<int>>
 // 学习到几个更c++化的写法,upper_bound/lower_bound,next/prev,当然还有sort
-// 连接 http://en.cppreference.com/w/cpp/algorithm/upper_bound
+// 链接 http://en.cppreference.com/w/cpp/algorithm/upper_bound
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
