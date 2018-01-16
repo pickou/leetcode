@@ -52,3 +52,40 @@ public:
         return closest_sum;
     }
 };
+
+/********颠倒一个32bit的有符号数，要判断溢出情况*******/
+// 问题的难点在于判断溢出，这个算法15ms,时间貌似还能更短，空间上也不应该用这么多变量，程序看起来也很复杂
+class Solution {
+public:
+    int reverse(int x) {
+        int NUM_MAX=2147483647;//2^31-1
+        int a[10] ={0};
+        int index=0,flag=0;
+        int reverse_num = 0;
+        int dishu=1;
+        if(x==0) return 0;
+        else if(x<0) {
+            if(x==1+NUM_MAX) return 0;
+            flag=1; x=0-x;
+        } 
+        else {flag=0;}
+        while(x) {
+            a[index] = x%10;
+            x = x/10;
+            index ++;
+        }
+        for(int i=index-1; i>=0; i--) {
+            if(index==10 &&a[0]>2) return 0;
+            reverse_num += dishu*a[i];
+            if(reverse_num== 1+NUM_MAX) return reverse_num;
+            if(reverse_num<0) return 0;
+            dishu *= 10;
+        }
+        if (flag==1) {
+            return 0-reverse_num;
+        }
+        else if(flag==0) {
+            return reverse_num;
+        }
+    }
+};
