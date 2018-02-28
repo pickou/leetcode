@@ -1,5 +1,4 @@
 // Implement pow(x, n).
-
 // testCase for n=-2^31, consider overflow.
 
 class Solution {
