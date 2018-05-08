@@ -1,4 +1,6 @@
 // https://blog.csdn.net/SpeedMe/article/details/21654357
+// http://xiaohuiliucuriosity.blogspot.com/2014/12/permutations.html
+// Divide && Conquer
 // DFS (use a visited array)
 /*
 class Solution {
