@@ -25,7 +25,7 @@ public:
         int c1=INT_MAX, c2=INT_MAX;
         for(auto i: nums) {
             if(i<=c1) c1=i;
-            else if(i>=c2) c2=i; // keeps c2>c1
+            else if(i<=c2) c2=i; // keeps c2>c1
             else return true; // i>c2>c1
         }
         return false;
