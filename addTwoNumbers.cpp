@@ -72,3 +72,40 @@ public:
         return head;
     }
 };
+
+// leetcode 67.
+/*
+Given two binary strings, return their sum (also a binary string).
+
+The input strings are both non-empty and contains only characters 1 or 0.
+
+Example 1:
+
+Input: a = "11", b = "1"
+Output: "100"
+Example 2:
+
+Input: a = "1010", b = "1011"
+Output: "10101"
+*/
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int N1=a.size()-1, N2=b.size()-1;
+        int op1=0, op2=0, c=0;
+        string res;
+        char s;
+        int i=0;
+        while(N1-i>=0||N2-i>=0) {
+            op1 = N1-i<0? 0:(a[N1-i]-'0');
+            op2 = N2-i<0? 0:(b[N2-i]-'0');
+            s = op1 + op2 + c + '0';  
+            c = (s - '0')/2;
+            s = (s-'0')%2 + '0';
+            res = s + res;
+            i++;
+        }
+        if(c) res = "1" + res;
+        return res;
+    }
+};
